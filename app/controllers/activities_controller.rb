@@ -16,6 +16,7 @@ class ActivitiesController < ApplicationController
     def create
         @activity = Activity.create(activity_params(:name, :difficulty))
         redirect_to activity_path(@activity)
+
     end
   
     def edit
@@ -36,6 +37,6 @@ class ActivitiesController < ApplicationController
         @activity = Activity.find(params[:id])
     end
 
-    
+
     
 end

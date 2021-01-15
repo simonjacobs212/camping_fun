@@ -1,2 +1,13 @@
-<h1>Signups#new</h1>
-<p>Find me in app/views/signups/new.html.erb</p>
+<h1> Sign Up Page </h1>
+
+    <%= form_for @signup do |f| %>
+
+        <%= f.label :camper_id, "Camper" %>
+        <%= f.collection_select :camper_id, Camper.all, :id, :name %>
+        <%= f.label :activity_id, "Activity" %>
+        <%= f.collection_select :activity_id, Activity.all, :id, :name %>
+        <%= f.label :time, "Please Enter Activity Time (1-24)" %>
+        <%= f.number_field :time %> 
+        <%= f.submit "Create Signup" %>
+
+    <%end%>

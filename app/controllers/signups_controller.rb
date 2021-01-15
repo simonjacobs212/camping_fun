@@ -13,8 +13,15 @@ class SignupsController < ApplicationController
   end
 
   def create
-      @signup = Signup.create(signup_params(:camper_id, :activity_id, :time))
-      redirect_to signup_path(@signup)
+      @signup = Signup.new(signup_params(:camper_id, :activity_id, :time))
+        if @signup.validate
+          redirect_to camper_path(@signup.camper)
+        else
+          flash.alert = @signup.errors.first[1]
+        end
+
+      #byebug
+      
   end
 
   def edit
@@ -34,5 +41,5 @@ class SignupsController < ApplicationController
   def set_signup 
       @signup = Signup.find(params[:id])
   end
-  
+
 end
