@@ -13,11 +13,12 @@ class SignupsController < ApplicationController
   end
 
   def create
-      @signup = Signup.new(signup_params(:camper_id, :activity_id, :time))
-        if @signup.validate
-          redirect_to camper_path(@signup.camper)
+      signup = Signup.create(signup_params(:camper_id, :activity_id, :time))
+        if signup.valid?
+          redirect_to camper_path(signup.camper)
         else
-          flash.alert = @signup.errors.first[1]
+          flash[:message] = signup.errors.first
+          redirect_to new_signup_path
         end
 
       #byebug
