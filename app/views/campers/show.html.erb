@@ -4,6 +4,8 @@
 
 <h3> 
     <% @camper.activities.each do |activity| %>
+    <li>
        Activity: <%= activity.name %>, Difficulty: <%= activity.difficulty %>
+    </li>
     <%end%>
 </h3>

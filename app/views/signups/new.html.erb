@@ -11,3 +11,12 @@
         <%= f.submit "Create Signup" %>
 
     <%end%>
+
+    <% if flash[:messages] %>
+        <% flash[:messages].each do |message| %>
+            <p>
+                <strong><%= message %></strong>
+            </p>
+        <% end %>
+    <% end %>
+
