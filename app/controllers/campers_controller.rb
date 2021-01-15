@@ -7,7 +7,6 @@ class CampersController < ApplicationController
     end
     
     def show
-        
     end
   
     def new

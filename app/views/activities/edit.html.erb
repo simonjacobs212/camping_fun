@@ -1,0 +1,9 @@
+<h1> Edit Actvity </h1>
+
+    <%= form_for @activity do |f| %>
+         <%= f.label :name, "Activity Name" %>
+         <%= f.text_field :name %>
+         <%= f.label :difficulty, "Activity Difficulty" %>
+         <%= f.number_field :difficulty %>
+         <%= f.submit "Update Activity" %>
+    <%end%>
